@@ -1,4 +1,16 @@
-import { Phone, Shield, Flame, Zap, Ambulance, Droplet, Users, Building, Heart, Lock, Droplets } from "lucide-react";
+import {
+  Phone,
+  Shield,
+  Flame,
+  Zap,
+  Ambulance,
+  Droplet,
+  Users,
+  Building,
+  Heart,
+  Lock,
+  Droplets,
+} from "lucide-react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -7,6 +19,7 @@ import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { Pricing } from "@/components/Pricing";
 
 const Index = () => {
   const { language } = useLanguage();
@@ -29,14 +42,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <Hero />
 
       {/* Services Section */}
       <section id="services" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.servicesTitle}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t.servicesTitle}
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               {t.servicesSubtitle}
             </p>
@@ -44,7 +59,11 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div
+                key={index}
+                className="animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <ServiceCard
                   icon={service.icon}
                   title={service.title}
@@ -57,9 +76,11 @@ const Index = () => {
       </section>
 
       <HowItWorks />
-      
+
+      <Pricing />
+
       <Testimonials />
-      
+
       <Footer />
     </div>
   );
