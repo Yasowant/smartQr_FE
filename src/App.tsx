@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import QRGenerator from "./components/QRGenerator";
 
 const queryClient = new QueryClient();
 
@@ -17,8 +18,13 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Home page */}
             <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+            {/* QR page */}
+            <Route path="/qr" element={<QRGenerator />} />
+
+            {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
